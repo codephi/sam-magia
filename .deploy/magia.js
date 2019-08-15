@@ -10,7 +10,7 @@ const templates = []
 function findTemplate(dir){
     const dirSplit = dir.split('/')
 
-    for(let i = dirSplit.length - 1; i > 0; i--){
+    for(let i = dirSplit.length; i > 0; i--){
         const dirJoin = dirSplit.splice(0,i).join('/')
 
         if(dirJoin.indexOf('lambdas/') === -1){
