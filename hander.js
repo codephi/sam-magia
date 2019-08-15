@@ -19,6 +19,4 @@ exec('git --no-pager log --name-status --max-count 1 --oneline | sed -n \'1!p\''
         })
     })
 
-
-
 console.log(folders)
