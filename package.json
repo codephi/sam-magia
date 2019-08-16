@@ -1,0 +1,17 @@
+{
+  "name": "sam-magia",
+  "version": "0.0.1",
+  "description": "Made to perform AWS SAM template deploy.",
+  "main": "cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "sam-magia": "cli.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "simple-flags": "^1.2.4"
+  }
+}
