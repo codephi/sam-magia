@@ -17,8 +17,8 @@ SAM Magia will find all template.yml (yaml, json) files in the recursively direc
 
 You can create your own deploy script by passing the filename as an argument to the command:`sam-magia . deploy.sh`.
 Before executing the deploy script, SAM Magia will define some variables, which are:
- - *$templateFilename*: Name of the template file.
- - *$templateBasePath*: Name of the template file.
+ - *$templateFilename*: Template filename.
+ - *$templateBasePath*: Template base path.
  - *$packagePath*: Package path.
 
 ### Deploy Script Example
