@@ -8,10 +8,6 @@ function findTemplate(dir){
     for(let i = dirSplit.length; i > 0; i--){
         const dirJoin = dirSplit.splice(0,i).join('/')
 
-        if(dirJoin.indexOf('lambdas/') === -1){
-            return null
-        }
-
         if(dirJoin.indexOf('node_modules/') > -1){
             continue
         }
@@ -30,17 +26,17 @@ function findTemplate(dir){
     }
 }
 
-module.exports = () => {
+module.exports = (rootPath) => {
     const files = []
     const templatesDir = []
 
-    exec(`cd ${process.cwd()} && git --no-pager log --name-status --max-count 1 --oneline | sed -n \'1!p\'`)
+    exec(`cd ${rootPath} && git --no-pager log --name-status --max-count 1 --oneline | sed -n \'1!p\'`)
         .toString()
         .split('\n')
         .filter(item => item)
         .forEach(item => {
             item.split('\t').slice(1).forEach(file => {
-                if(file.indexOf('lambdas/') === 0 && files.indexOf(file) === -1){
+                if(files.indexOf(file) === -1){
                     files.push(file)
                 }
             })

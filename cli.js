@@ -5,14 +5,25 @@ const getTemplates = require('./libs/getTemplates')
 const fs = require('fs')
 
 const samCommands = []
+let rootPath = process.cwd()
 
 try {
-    samCommands.push(fs.readFileSync(process.argv[2] || path.resolve(__dirname, 'deploy.sh')).toString())
+    if(process.argv[2]){
+        rootPath = path.resolve(process.argv[2])
+
+        if(process.argv[3]){
+            samCommands.push(fs.readFileSync(process.argv[3]).toString())
+        } else {
+            samCommands.push(fs.readFileSync(path.resolve(rootPath, 'deploy.sh')).toString())
+        }
+    } else {
+        samCommands.push(fs.readFileSync(path.resolve(rootPath, 'deploy.sh')).toString())
+    }
 } catch(err) {
     return console.error('Deploy file not found.')
 }
-
-const templates = getTemplates()
+console.log(samCommands)
+const templates = getTemplates(rootPath)
 
 console.log('\nHANDLER COMMANDS...')
 
@@ -25,7 +36,7 @@ const commandsRun = templates.map(template => {
 
     for(let key in samCommands){
         const packageOutput = packageOutputPath(key)
-        const comm = samCommands[key].replace(/\$lambdaPath/g , template[0])
+        const comm = samCommands[key].replace(/\$templateBasePath/g , template[0])
             .replace(/\$templateFilename/g, template[2])
             .replace(/\$packagePath/g , packageOutput)
 
@@ -44,10 +55,10 @@ try {
                 console.log('\n-> Exec command', 1)
                 console.log(`\n${command[i]}`)
                 const stout = exec(command[i])
-                console.log(stout)
+                console.log(stout.toString())
             }
         } catch (err){
-            throw err
+            throw new Error(err.message.toString())
         }
     })
 
