@@ -3,9 +3,23 @@
   "version": "0.0.2",
   "description": "Made to perform AWS SAM template deploy.",
   "main": "cli.js",
-  "bin": {
-    "sam-magia": "cli.js"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhilippeAssis/sam-magia.git"
+  },
+  "author": "Philippe Assis <assis@philippeassis.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PhilippeAssis/sam-magia/issues"
+  },
+  "homepage": "https://github.com/PhilippeAssis/sam-magia#readme",
+  "keywords": [
+    "sam",
+    "aws",
+    "lambda",
+    "deploy"
+  ]
 }
