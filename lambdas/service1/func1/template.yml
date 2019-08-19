@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  MyLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: lamda-sam-test1
+      Handler: index.handler
+      Runtime: runtime
+      Timeout: 60
+      MemorySize: 128
+      Policies: AWSLambdaExecute
+      CodeUri: src
+      Description: 'Função de teste sam'
+      Environment:
+        Variables:
+          LOCAL: env

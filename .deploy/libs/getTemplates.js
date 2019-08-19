@@ -12,6 +12,10 @@ function findTemplate(dir){
             return null
         }
 
+        if(dirJoin.indexOf('node_modules/') > -1){
+            continue
+        }
+
         const pathSplit = [
             path.resolve(dirJoin, 'template.yml'),
             path.resolve(dirJoin, 'template.yaml'),
@@ -26,11 +30,11 @@ function findTemplate(dir){
     }
 }
 
-module.exports = () => {
+module.exports = (rootPath) => {
     const files = []
     const templatesDir = []
 
-    exec(`cd ${process.cwd()} && git --no-pager log --name-status --max-count 1 --oneline | sed -n \'1!p\'`)
+    exec(`cd ${rootPath} && git --no-pager log --name-status --max-count 1 --oneline | sed -n \'1!p\'`)
         .toString()
         .split('\n')
         .filter(item => item)
