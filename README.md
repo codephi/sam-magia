@@ -25,7 +25,7 @@ Before executing the deploy script, SAM Magia will define some variables, which 
 
 ```bash
 cd $templateBasePath \
-&& sam package --profile sophi --template-file $templateFilename --s3-bucket my-sam-deploy --output-template-file $packagePath \
-&& sam deploy --profile sophi  --template-file $packagePath --stack-name my-stack-name \
+&& sam package --template-file $templateFilename --s3-bucket my-sam-deploy --output-template-file $packagePath \
+&& sam deploy --template-file $packagePath --stack-name my-stack-name \
 && rm $packagePath 
 ```
