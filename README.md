@@ -8,14 +8,15 @@ SAM Magia scans the project directories looking for files named template.yml, ya
 
 ## How it works?
  
-First you need to install globally using npm: `npm install -g sam-magia` 
-Then run it in the project root directory: `sam-magia .`.
+First you need to install globally using npm: `npm install -g sam-magia`.
+Then run it in the project root directory: `sam-magia`.
 
-SAM Magic will find all template.yml (yaml, json) files in the recursively directory and execute the following cli on each path:
+SAM Magia will find all template.yml (yaml, json) files in the recursively directory and execute the following cli on each path:
 
 *We use the project's .gitignore to ignore directories that may contain template files.* 
 
-You can create your own deploy script by passing the filename as an argument to the command:`sam-magia deploy.sh`. Antes de executar o script de deploy, o SAM Magia definira algumas variavés, que s"ao:
+You can create your own deploy script by passing the filename as an argument to the command:`sam-magia . deploy.sh`.
+Before executing the deploy script, SAM Magia will define some variables, which are:
  - *$templateFilename*: Name of the template file.
  - *$templateBasePath*: Name of the template file.
  - *$packagePath*: Package path.

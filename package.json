@@ -10,8 +10,5 @@
     "sam-magia": "cli.js"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "simple-flags": "^1.2.4"
-  }
+  "license": "ISC"
 }
