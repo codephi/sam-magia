@@ -22,7 +22,7 @@ try {
 } catch(err) {
     return console.error('Deploy file not found.')
 }
-console.log(samCommands)
+
 const templates = getTemplates(rootPath)
 
 console.log('\nHANDLER COMMANDS...')
