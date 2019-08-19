@@ -28,7 +28,7 @@ const templates = getTemplates(rootPath)
 console.log('\nHANDLER COMMANDS...')
 
 function packageOutputPath(key){
-    return  path.resolve(__dirname, 'packages', `${Date.now()}-${key}.yml` )
+    return  path.resolve(rootPath, '.packages', `${Date.now()}-${key}.yml` )
 }
 
 const commandsRun = templates.map(template => {
