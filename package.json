@@ -1,6 +1,6 @@
 {
   "name": "sam-magia",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Made to perform AWS SAM template deploy.",
   "main": "cli.js",
   "bin": {
